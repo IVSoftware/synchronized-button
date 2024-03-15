@@ -31,12 +31,9 @@ namespace synchronized_button
             buttonShowForm1.Click += (sender, e) =>
             {
                 var mainForm = Application.OpenForms["MainForm"];
-                if (
-                    Application.OpenForms["f1"] is Form form
-                    &&
-                    !form.Visible)
+                if (Application.OpenForms["f1"] is Form form)                   
                 {
-                    form.Show(mainForm);
+                    if(!form.Visible) form.Show(mainForm);
                 }
                 else
                 {
@@ -53,12 +50,9 @@ namespace synchronized_button
             buttonShowForm2.Click += (sender, e) =>
             {
                 var mainForm = Application.OpenForms["MainForm"];
-                if (
-                    Application.OpenForms["f2"] is Form form
-                    &&
-                    !form.Visible)
+                if (Application.OpenForms["f2"] is Form form)
                 {
-                    form.Show(mainForm);
+                    if (!form.Visible) form.Show(mainForm);
                 }
                 else
                 {
