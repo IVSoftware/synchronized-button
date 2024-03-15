@@ -1,4 +1,4 @@
-﻿namespace static_button
+﻿namespace synchronized_button
 {
     partial class MainForm
     {
