@@ -69,8 +69,8 @@
             Controls.Add(buttonShowForm1);
             Controls.Add(buttonSetting);
             Name = "MainForm";
-            Text = "Main Form";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Main Form";
             ResumeLayout(false);
         }
 
