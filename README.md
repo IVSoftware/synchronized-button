@@ -1,8 +1,8 @@
 ﻿## Synchronized inherited button
 
-Just to elaborate on the excellent comment by Ňɏssa Pøngjǣrdenlarp, form inheritance is more of a design-time behavior where the subclass inherits the layout properties you specify. But at runtime, when you make a instance of `InheritedClass`, its instance of (for example) `buttonSetting` is distinct as well.
+Just to elaborate on the excellent comment by Ňɏssa Pøngjǣrdenlarp, form inheritance is more of a design-time behavior where the subclass inherits the _layout_ properties you specify. But at runtime, when you make a instance of `InheritedClass`, its instance of (for example) `buttonSetting` is distinct as well.
 
-So to "mirror" the color change behavior we do have to add a handler for when `buttonSetting.BackColor` changes and go through all of the forms in the app to synchronize the change.
+So to "mirror" the color change behavior, add a handler for when `buttonSetting.BackColor` changes and go through all of the forms in the app to synchronize the change.
 
 ```
 buttonSetting.BackColorChanged += (sender, e) =>
