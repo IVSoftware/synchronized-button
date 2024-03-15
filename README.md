@@ -29,19 +29,41 @@ ___
 
 Here's that snippet with some context:
 
-[![demo showing synchronized color changes][1]][1]
+[![demo showing synchronized color changes][2]][2]
 
 ###### Inherited Form Class
 ```
 public class InheritedForm : MainForm 
 {
+    public InheritedForm()
+    {
+        var richTextBox = new RichTextBox
+        {
+            Size = new Size(230, 220),
+            Location = new Point(237, 12),
+            Anchor = (AnchorStyles)0xF,
+        };
+        richTextBox.SelectionIndent = 10;
+        richTextBox.AppendText($"Inherited forms only.{Environment.NewLine}");
+        Controls.Add(richTextBox);
+        foreach (var button in Controls.OfType<Button>())
+        {
+            button.Click += (sender, e) =>
+            {
+                if(sender is Button button) 
+                {
+                    richTextBox.AppendText($"{button.Text} Clicked!");
+                }
+            };
+        }
+    }
     protected override void OnFormClosing(FormClosingEventArgs e)
     {
         if(e.CloseReason.Equals(CloseReason.UserClosing))
         {
             e.Cancel = true;
             Hide();
-            Application.OpenForms["MainForm"]?.BringToFront(); // Workaround 'last visible child' issue
+            Application.OpenForms["MainForm"]?.BringToFront(); // Workaroud 'last visible child' issue
         }
         base.OnFormClosing(e);
     }
@@ -124,4 +146,6 @@ public partial class MainForm : Form
 }
 ```
 
+
   [1]: https://i.stack.imgur.com/HSbzm.png
+  [2]: https://i.stack.imgur.com/iKHdQ.png
