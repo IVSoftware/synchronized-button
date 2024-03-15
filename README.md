@@ -41,7 +41,7 @@ public class InheritedForm : MainForm
         {
             e.Cancel = true;
             Hide();
-            Application.OpenForms["MainForm"]?.BringToFront(); // Workaroud 'last visible child' issue
+            Application.OpenForms["MainForm"]?.BringToFront(); // Workaround 'last visible child' issue
         }
         base.OnFormClosing(e);
     }
